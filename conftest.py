@@ -8,16 +8,13 @@ URL = 'http://www.cbr.ru/scripts/XML_daily.asp'
 def get_cbr_rates(request):
     date = request.param
     url = f'{URL}?date_req={date}'
-    # Отправляем запрос на получение курсов валют
+    # Отправляем запрос на получение курсов валют на определенную дату
     response = requests.get(url)
     return response
 
 
-"""
 @pytest.fixture
-def get_cbr_xml():
-    url = 'http://www.cbr.ru/StaticHtml/File/92172/ValCurs.xsd'
-    # Отправляем запрос на получение схемы XSD
-    response = requests.get(url)
+def get_cbr_rates_last_date():
+    # Отправляем запрос на получение курсов валют на последнюю дату
+    response = requests.get(URL)
     return response
-"""
